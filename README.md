@@ -3,7 +3,7 @@ This program tracks utility payment history to increase accountability of roomma
 
 ## Compilation
 
-A Makefile has been included to easily compile all C source files in this project. Type the following to compile them all:
+A Makefile has been included to easily compile all C++ source files in this project. Type the following to compile them all:
 
 ```
 make all
