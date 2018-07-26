@@ -22,13 +22,18 @@ public:
     Date();
     Date(int month, int day, int year);
     Date(tm t);
+    Date(const Date& other);
     
     // MODIFICATION MEMBER FUNCTIONS
+    Date& operator=(const Date& other);
     
     // CONSTANT MEMBER FUNCTIONS
     int get_month() const { return this->month; }
     int get_day() const { return this->day; }
     int get_year() const { return this->year; }
+    Date get_today() const;
+    
+    //friend std::ostream& operator <<(std::ostream& out, const Date *d);
     
 private:
     int month;
@@ -37,6 +42,7 @@ private:
 };
 
 // NON-MEMBER OUTPUT FUNCTIONS
-std::ostream& operator <<(std::ostream& out, const Date& d);
+std::ostream& operator <<(std::ostream& out, const Date &d);
+
 
 #endif /* DATE_H */
