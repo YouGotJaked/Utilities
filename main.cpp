@@ -36,8 +36,41 @@ void menu() {
          << "Enter the number of the action you would like to perform:" << endl
          << "[1]\tStart a new payment" << endl
          << "[2]\tView most recent payment" << endl
-         << "[3]\tView/edit an existing payment" << endl //separate sub-menu for Payment" << endl
-         << "[-1]\tExit" << endl;
+         << "[3]\tView/edit an existing payment" << endl //separate sub-menu for Payment
+         << "[-1]\tExit program" << endl;
+    
+    char line[64];
+    int choice;
+    
+    // loop until user inputs a valid integer
+    while (true) {
+        fgets(line, sizeof(line), stdin);
+        if (sscanf(line, "%d", &choice) != 1) {
+            cout << "Please enter a valid integer." << endl;
+        } else if (!(choice >= 1 && choice <= 3) && choice != -1) {
+            cout << "Please enter a valid input selection." << endl;
+        } else {
+            break;
+        }
+    }
+    
+    switch (choice) {
+        case 1:
+            // create a new payment
+            break;
+        case 2:
+            // view most recent (last entry in vector)
+            
+            break;
+        case 3:
+            // view edit an existing payment (list all payments and their index)
+            break;
+        case (-1):
+            cout << "Exiting application..." << endl;
+            return;
+        default:
+            break;
+    }
 }
 
 // print current date
@@ -52,10 +85,10 @@ Date current_date() {
 int main() {
     startup();
     menu();
-    Date today = current_date();
+
     Payment p(4);
     cout << p << endl;
-    p.submenu();
+    p.submenu(&menu);
     // next payment: $amount due on $date
     // active members:
     // payments left:
